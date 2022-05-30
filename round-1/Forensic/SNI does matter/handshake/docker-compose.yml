@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  handshake:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.tcp.services.handshake.loadbalancer.server.port=8080
+      - traefik.tcp.routers.handshake.rule=HostSNI(`handshake.u18.haruulzangi.mn`)
+      - traefik.tcp.routers.handshake.entrypoints=websecure
+      - traefik.tcp.routers.handshake.tls=true
+

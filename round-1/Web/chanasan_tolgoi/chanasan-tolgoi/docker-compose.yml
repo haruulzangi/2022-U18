@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  chanasan-tolgoi:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.services.chanasan-tolgoi.loadbalancer.server.port=3000
+      - traefik.http.routers.chanasan-tolgoi.rule=Host(`chanasan-tolgoi.u18.haruulzangi.mn`)
+      - traefik.http.routers.chanasan-tolgoi.entrypoints=websecure
+      - traefik.http.routers.chanasan-tolgoi.tls=true

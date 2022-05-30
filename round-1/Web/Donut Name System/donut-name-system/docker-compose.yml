@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  donut-name-system:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.services.donut-name-system.loadbalancer.server.port=3000
+      - traefik.http.routers.donut-name-system.rule=Host(`donut-name-system.u18.haruulzangi.mn`)
+      - traefik.http.routers.donut-name-system.entrypoints=websecure
+      - traefik.http.routers.donut-name-system.tls=true
+

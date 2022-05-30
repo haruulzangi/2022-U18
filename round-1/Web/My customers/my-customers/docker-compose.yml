@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  my-customers:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.my-customers.entrypoints=websecure
+      - traefik.http.routers.my-customers.tls=true
+      - traefik.http.routers.my-customers.rule=Host(`my-customers.u18.haruulzangi.mn`)
+

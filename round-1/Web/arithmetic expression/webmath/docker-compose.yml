@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  math:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.services.math.loadbalancer.server.port=5000
+      - traefik.http.routers.math.rule=Host(`math.u18.haruulzangi.mn`)
+      - traefik.http.routers.math.entrypoints=websecure
+      - traefik.http.routers.math.tls=true

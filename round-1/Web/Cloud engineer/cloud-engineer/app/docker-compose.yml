@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  cloud-engineer:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.services.cloud-engineer.loadbalancer.server.port=3000
+      - traefik.http.routers.cloud-engineer.rule=Host(`cloud-engineer.u18.haruulzangi.mn`)
+      - traefik.http.routers.cloud-engineer.entrypoints=websecure
+      - traefik.http.routers.cloud-engineer.tls=true
+

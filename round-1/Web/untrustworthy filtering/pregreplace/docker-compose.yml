@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  pregreplace:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.services.pregreplace.loadbalancer.server.port=80
+      - traefik.http.routers.pregreplace.rule=Host(`pregreplace.u18.haruulzangi.mn`)
+      - traefik.http.routers.pregreplace.entrypoints=websecure
+      - traefik.http.routers.pregreplace.tls=true

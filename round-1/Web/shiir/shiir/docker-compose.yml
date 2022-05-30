@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  shiir:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.services.shiir.loadbalancer.server.port=3000
+      - traefik.http.routers.shiir.rule=Host(`shiir.u18.haruulzangi.mn`)
+      - traefik.http.routers.shiir.entrypoints=websecure
+      - traefik.http.routers.shiir.tls=true
