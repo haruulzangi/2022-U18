@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  searchid:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.services.searchid.loadbalancer.server.port=5000
+      - traefik.http.routers.searchid.rule=Host(`searchid.u18.haruulzangi.mn`)
+      - traefik.http.routers.searchid.entrypoints=websecure
+      - traefik.http.routers.searchid.tls=true

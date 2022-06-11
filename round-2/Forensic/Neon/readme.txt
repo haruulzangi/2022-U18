@@ -1,0 +1,1 @@
+With her electrifying speed allowing her to charge into the heat of the battle, Neon is not one who can promise her allies that she'll stay out of harm's way. While she is confident in her abilities and the value it can bring during gunfights, she can sometimes struggle to control her electric powers and thus makes it a point to keep them in check at all times.
