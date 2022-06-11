@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  web-app:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.web-app.entrypoints=websecure
+      - traefik.http.routers.web-app.tls=true
+      - traefik.http.routers.web-app.rule=Host(`web-app.u18.haruulzangi.mn`)
+

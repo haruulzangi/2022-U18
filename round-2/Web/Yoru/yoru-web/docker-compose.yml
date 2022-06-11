@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  yoru:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.yoru.entrypoints=websecure
+      - traefik.http.routers.yoru.rule=Host(`yoru.u18.haruulzangi.mn`)
+      - traefik.http.routers.yoru.tls=true
