@@ -1,0 +1,8 @@
+version: '2.0'
+services:
+ warmup-declare:
+   build:
+    context: .
+   ports:
+    - "17711:17711"
+   restart: unless-stopped

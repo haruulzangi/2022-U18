@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  weak-password:
+    build: .
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.services.weak-password.loadbalancer.server.port=5000
+      - traefik.http.routers.weak-password.rule=Host(`weak-password.u18.haruulzangi.mn`)
+      - traefik.http.routers.weak-password.entrypoints=websecure
+      - traefik.http.routers.weak-password.tls=true

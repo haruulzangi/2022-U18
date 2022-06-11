@@ -1,0 +1,8 @@
+version: '3.0'
+services:
+ maps-declare:
+   build:
+    context: .
+   ports:
+    - "17712:17712"
+   restart: unless-stopped

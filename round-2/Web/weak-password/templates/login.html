@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Haruul-Zangi</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+<script>
+    var login_check = function () {
+        var password = document.getElementById("password").value;
+        if (document.getElementById("username").value != "sage"){
+            console.log(username);
+            document.getElementById("warning").innerHTML = "Username or Password is Incorrect";
+        }
+        else
+        {
+            var passHash = CryptoJS.MD5(password).toString();
+            if (passHash == "2c103f2c4ed1e59c0b4e2e01821770fa"){
+                window.location="./flag?user=sage&pass="+password
+            }
+            else {
+                document.getElementById("warning").innerHTML = "Username or Password is Incorrect";
+            }
+        }
+    }
+</script>
+<body>
+    <center>
+    <h2>Welcome!!!</h2>
+    <p>At the momment, Only admin can login.</p>
+    <br>
+    Username:<input type="text" id="username"><br>
+    Password:<input type="password" id="password"><br>
+    <button onclick="login_check()">Log In</button>
+    <h3 style="color:red;" id="warning"></h3>
+    </center>
+</body>
+</html>
